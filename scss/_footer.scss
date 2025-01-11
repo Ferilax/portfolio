@@ -1,0 +1,45 @@
+.footer {
+	margin-top: 145px;
+	border-top: 1px solid var(--white);
+	padding: 32px 0;
+
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__left {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	&__mail {
+		color: var(--grey);
+	}
+
+	&__job {
+		color: var(--white);
+	}
+
+	&__right {
+		display: flex;
+		gap: 24px;
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 32px;
+		height: 32px;
+		flex: 0 0 32px;
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

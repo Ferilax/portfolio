@@ -1,0 +1,27 @@
+@import "_vars";
+
+.header {
+	&__nav {
+		display: flex;
+		gap: 32px;
+		justify-content: end;
+	}
+
+	&__link {
+		color: var(--grey);
+
+		span {
+			color: var(--primary);
+		}
+	}
+
+	&__link._active {
+		color: var(--white);
+	}
+
+	&__link._disabled {
+		filter: brightness(60%);
+		pointer-events: none;
+	}
+
+}
