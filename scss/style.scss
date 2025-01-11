@@ -15,6 +15,12 @@
 	overflow-x: hidden;
 }
 
+html,
+body {
+
+	scroll-behavior: smooth;
+}
+
 .container {
 	max-width: 1024px;
 	margin: 0 auto;
