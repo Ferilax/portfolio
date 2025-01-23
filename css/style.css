@@ -320,6 +320,7 @@ h6 {
 }
 .me__image {
   position: relative;
+  aspect-ratio: 1;
 }
 .me__right {
   position: relative;
@@ -349,6 +350,10 @@ h6 {
   border: 1px solid var(--grey);
   color: var(--grey);
   padding: 8px 8px 8px 34px;
+  transition: 0.2s;
+}
+.me__status:hover {
+  border: 1px solid var(--primary);
 }
 .me__status::before {
   content: "";
@@ -373,7 +378,6 @@ h6 {
 @media (max-width: 700px) {
   .me .container {
     display: flex;
-    flex-direction: column;
   }
   .me__left {
     margin: 0;
@@ -384,6 +388,10 @@ h6 {
   .me .figura {
     left: 0%;
     top: 30%;
+  }
+  .me .figura,
+  .me .dots {
+    display: none;
   }
 }
 @media (max-width: 550px) {
@@ -435,6 +443,14 @@ h6 {
 }
 .projects__card {
   border: 1px solid var(--grey);
+  transition: 0.2s;
+}
+.projects__card:hover {
+  border: 1px solid var(--primary);
+}
+.projects__card:hover .projects__card_tags {
+  border-top: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary);
 }
 .projects__card img {
   width: 100%;
@@ -443,19 +459,40 @@ h6 {
      object-fit: cover;
   transition: 0.2s;
 }
-@media (hover: hover) and (pointer: fine) {
-  .projects__card a img:hover {
-    transform: scale(1.2);
-  }
+.projects__card svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+  z-index: 2;
+}
+.projects__card svg path {
+  stroke: white;
 }
 .projects__card_img {
   aspect-ratio: 330/200;
   display: block;
   overflow: hidden;
+  position: relative;
+}
+@media (hover: hover) and (pointer: fine) {
+  .projects__card a:hover img {
+    filter: brightness(50%);
+  }
+  .projects__card a:hover svg {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 .projects__card_tags {
   padding: 8px;
   color: var(--grey);
+  transition: 0.2s;
   border-top: 1px solid var(--grey);
   border-bottom: 1px solid var(--grey);
 }
@@ -581,12 +618,20 @@ h6 {
 }
 .skills__item {
   border: 1px solid var(--grey);
+  transition: 0.2s;
+}
+.skills__item:hover {
+  border: 1px solid var(--primary);
+}
+.skills__item:hover .skills__item_title {
+  border-bottom: 1px solid var(--primary);
 }
 .skills__item_title {
   padding: 8px;
   color: var(--white);
   font-weight: 500;
   border-bottom: 1px solid var(--grey);
+  transition: 0.2s;
 }
 .skills__item_tags {
   color: var(--grey);
@@ -729,6 +774,7 @@ h6 {
 .about-me__img {
   position: relative;
   aspect-ratio: 1;
+  display: none;
 }
 .about-me__img img {
   overflow: hidden;
@@ -801,9 +847,13 @@ h6 {
   flex: 0 1 204px;
   padding: 16px;
   border: 1px solid var(--grey);
+  transition: 0.2s;
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+.contacts__links:hover {
+  border: 1px solid var(--primary);
 }
 .contacts__link-title {
   font-weight: 600;
@@ -901,4 +951,5 @@ body {
 .square-2,
 .figura {
   pointer-events: none;
+  transition: 0.15s linear;
 }

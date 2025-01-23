@@ -54,7 +54,6 @@
 	}
 }
 
-
 .me {
 	.container {
 		display: grid;
@@ -97,6 +96,7 @@
 
 	&__image {
 		position: relative;
+		aspect-ratio: 1;
 	}
 
 	&__right {
@@ -132,6 +132,11 @@
 		border: 1px solid var(--grey);
 		color: var(--grey);
 		padding: 8px 8px 8px 34px;
+		transition: 0.2s;
+
+		&:hover {
+			border: 1px solid var(--primary);
+		}
 
 		&::before {
 			content: "";
@@ -160,7 +165,7 @@
 	@media (max-width: 700px) {
 		.container {
 			display: flex;
-			flex-direction: column;
+			//flex-direction: column;
 		}
 
 		&__left {
@@ -174,6 +179,11 @@
 		.figura {
 			left: -0%;
 			top: 30%;
+		}
+
+		.figura,
+		.dots {
+			display: none;
 		}
 	}
 
@@ -215,6 +225,16 @@
 
 	&__card {
 		border: 1px solid var(--grey);
+		transition: 0.2s;
+
+		&:hover {
+			border: 1px solid var(--primary);
+
+			.projects__card_tags {
+				border-top: 1px solid var(--primary);
+				border-bottom: 1px solid var(--primary);
+			}
+		}
 
 		img {
 			width: 100%;
@@ -223,11 +243,21 @@
 			transition: 0.2s;
 		}
 
-		a img {
-			@media (hover: hover) and (pointer: fine) {
-				&:hover {
-					transform: scale(1.2);
-				}
+		svg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 40px;
+			height: 40px;
+
+			opacity: 0;
+			visibility: hidden;
+			transition: 0.2s;
+			z-index: 2;
+
+			path {
+				stroke: white;
 			}
 		}
 
@@ -236,12 +266,30 @@
 			display: block;
 
 			overflow: hidden;
+
+			position: relative;
+		}
+
+		a {
+			@media (hover: hover) and (pointer: fine) {
+				&:hover {
+					img {
+						filter: brightness(50%);
+					}
+
+					svg {
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+			}
 		}
 
 		&_tags {
 			padding: 8px;
 
 			color: var(--grey);
+			transition: 0.2s;
 			border-top: 1px solid var(--grey);
 			border-bottom: 1px solid var(--grey);
 		}
@@ -369,12 +417,22 @@
 
 	&__item {
 		border: 1px solid var(--grey);
+		transition: 0.2s;
+
+		&:hover {
+			border: 1px solid var(--primary);
+
+			.skills__item_title {
+				border-bottom: 1px solid var(--primary);
+			}
+		}
 
 		&_title {
 			padding: 8px;
 			color: var(--white);
 			font-weight: 500;
 			border-bottom: 1px solid var(--grey);
+			transition: 0.2s;
 		}
 
 		&_tags {
@@ -515,6 +573,7 @@
 	&__img {
 		position: relative;
 		aspect-ratio: 1;
+		display: none;
 
 
 		img {
@@ -581,9 +640,15 @@
 		padding: 16px;
 		border: 1px solid var(--grey);
 
+		transition: 0.2s;
+
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
+
+		&:hover {
+			border: 1px solid var(--primary);
+		}
 	}
 
 	&__link-title {
